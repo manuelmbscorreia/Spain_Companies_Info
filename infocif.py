@@ -138,8 +138,14 @@ for i in range(0, 999999):
 
             time.sleep(3)
 
+            tables_info.to_csv(f"Spain_Company_Names_and_Info.csv", sep=",", index=False, header=True)
+
+            print(f"Extração da página n.ª{i+1} do website Infocif, efetuada com sucesso.")
+
       except:
-            pass
+            break
+
+      break
 
 
 time.sleep(3)
