@@ -7,6 +7,10 @@ name = "pypi"
 selenium = "*"
 pandas = "*"
 numpy = "*"
+unidecode = "*"
+requests = "*"
+bs4 = "*"
+lxml = "*"
 
 [dev-packages]
 
