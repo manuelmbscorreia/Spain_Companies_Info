@@ -109,6 +109,7 @@ time.sleep(3)
 
 for i in range(0, 999999):
       try:
+            time.sleep(2)
             #Clicar seta próxima página
             path = "/html/body/div[1]/div/div[1]/div/div/div/div/div[3]/div[2]/div[2]/button[1]/i"
             element = browser.find_element_by_xpath(path)
@@ -120,7 +121,7 @@ for i in range(0, 999999):
             actions.click(element)
             actions.perform()
 
-            time.sleep(7)
+            time.sleep(3)
 
             # Extract
             soup = BeautifulSoup(browser.page_source, 'lxml')
@@ -144,8 +145,6 @@ for i in range(0, 999999):
 
       except:
             break
-
-      break
 
 
 time.sleep(3)
