@@ -1,7 +1,5 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver import Chrome
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -14,15 +12,26 @@ from bs4 import BeautifulSoup
 import urllib3
 import re
 import numpy as np
-
 #Preparar lista de cidades a selecionar e para Input
 
 
 #Setup Website
 
-#profile = webdriver.FirefoxProfile('/usr/local/bin/')
+
+
 browser = webdriver.Firefox()
 browser.get("http://www.infocif.es/buscador/#/")
+browser.set_context("chrome")
+
+win = browser.find_element_by_tag_name("html")
+win.send_keys(Keys.CONTROL + "-")
+win.send_keys(Keys.CONTROL + "-")
+win.send_keys(Keys.CONTROL + "-")
+win.send_keys(Keys.CONTROL + "-")
+win.send_keys(Keys.CONTROL + "-")
+
+browser.set_context("content")
+
 time.sleep(10)
 
 
@@ -38,11 +47,12 @@ actions.perform()
 
 time.sleep(4)
 
-#Get Element
+#Get Element Extremadura
 
 path = "/html/body/div[1]/div/div[1]/div/div/div/div/section/div/div/div/div/div[1]/div[2]/div/div/div/div/div/div[1]/div[3]/div/div[2]/div/div/div/div[2]/div[12]/div/div[2]/div"
 
 element = browser.find_element_by_xpath(path)
+element.location_once_scrolled_into_view
 
 #Click on Element
 actions = webdriver.ActionChains(browser)
